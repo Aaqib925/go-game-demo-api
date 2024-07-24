@@ -47,6 +47,7 @@ model User {
   oauth     UserOAuth?
   Media     Media?        @relation(fields: [mediaId], references: [id])
   mediaId   Int?
+  todo      Todo[]
 }
 
 model UserSettings {
@@ -57,6 +58,17 @@ model UserSettings {
   createdAt            DateTime  @default(now()) @db.Timestamptz()
   updatedAt            DateTime  @default(now()) @updatedAt @db.Timestamptz()
   deletedAt            DateTime? @db.Timestamptz()
+}
+
+model Todo {
+  id        String    @id @default(uuid())
+  title     String
+  completed Boolean   @default(false)
+  createdAt DateTime  @default(now()) @db.Timestamptz()
+  updatedAt DateTime  @default(now()) @updatedAt @db.Timestamptz()
+  deletedAt DateTime? @db.Timestamptz()
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
 }
 
 enum DeviceType {

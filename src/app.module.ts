@@ -17,6 +17,7 @@ import SMSModule from 'modules/sms/sms.module';
 import OAuthModule from 'modules/oauth/oauth.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import RedisModule from 'core/cache/redis.module';
+import TodoModule from 'modules/todo/todo.module';
 @Module({
   imports: [
     TranslatorModule.forRoot({
@@ -39,6 +40,7 @@ import RedisModule from 'core/cache/redis.module';
     EmailModule,
     SMSModule,
     OAuthModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [
