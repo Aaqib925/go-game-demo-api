@@ -20,7 +20,7 @@ PORT=3001
 DEBUG=true
 LOG_LEVEL=10
 
-DATABASE_URL="postgresql://postgres:click123@localhost:5432/api_db?schema=public"
+DATABASE_URL="postgresql://gogame_postgres:click123@localhost:5432/gogame_db?schema=public"
 
 REDIS_HOST=localhost
 REDIS_PORT=6379
@@ -45,8 +45,14 @@ NEST_DEBUG=true
 -   Start PostgreSQL and Redis docker container
 
 ```
-docker volume create --name=api_postgres_data
-docker volume create --name=api_redis_data
+make
+```
+
+-   OR
+
+```
+docker volume create --name=gogame_api_postgres_data
+docker volume create --name=gogame_api_redis_data
 docker-compose up -d
 ```
 
